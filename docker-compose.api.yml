@@ -23,7 +23,7 @@ services:
   bookReview_back:
     build:
       context: ./api
-    image: inetel/bookreview_back
+    image: imagen-back
     container_name: bookReview_back
     depends_on:
       - bookReview_bdd

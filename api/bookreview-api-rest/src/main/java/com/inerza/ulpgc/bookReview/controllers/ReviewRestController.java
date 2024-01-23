@@ -5,6 +5,7 @@ import com.inerza.ulpgc.bookReview.model.dto.ReviewDTO;
 import com.inerza.ulpgc.bookReview.model.entities.Review;
 import com.inerza.ulpgc.bookReview.model.mappers.ReviewMapper;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -37,9 +38,13 @@ public class ReviewRestController {
     @GetMapping(produces = "application/json")
     @ResponseBody
     public List<ReviewDTO> getReviews(
+            @Parameter(name = "page", description = "Página")
             @RequestParam() Integer page,
+            @Parameter(name = "size", description = "Elementos por página")
             @RequestParam() Integer size,
+            @Parameter(name = "sortDir", description = "ASC o DSC")
             @RequestParam() String sortDir,
+            @Parameter(name = "sort", description = "Ordenar por campo Ex. 'id' ")
             @RequestParam() String sort) {
 
         List<Review> reviews = reviewService.getReviewList(page, size, sortDir, sort);

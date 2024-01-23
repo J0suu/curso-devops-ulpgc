@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'review-edition',
     loadChildren: () => import('./pages/review-edition/review-edition.module').then( m => m.ReviewEditionPageModule)
+  },
+  {
+    path: 'books',
+    loadChildren: () => import('./pages/books/books.module').then( m => m.BooksPageModule)
+  },
+  {
+    path: 'books-edition',
+    loadChildren: () => import('./pages/books-edition/books-edition.module').then( m => m.BooksEditionPageModule)
   }
 ];
 

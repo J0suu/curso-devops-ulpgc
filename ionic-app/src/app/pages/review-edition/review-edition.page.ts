@@ -67,7 +67,6 @@ export class ReviewEditionPage implements OnInit {
               newReview: this.review              
             }
           };
-          console.log(navExtras);
           this.navController.navigateForward('reviews');
         }
       );
@@ -81,6 +80,19 @@ export class ReviewEditionPage implements OnInit {
           this.navController.navigateForward('reviews');
         });
     }
+  }
+
+  editarLibro() {
+    const book = this.bookId
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        book
+      }
+    };
+    this.navController.navigateForward('books-edition', navigationExtras)
+  }
+  crearLibro() {
+    this.navController.navigateForward('books-edition')
   }
 
 }
